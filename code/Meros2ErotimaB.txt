@@ -1,0 +1,101 @@
+var s1,s2,s3: semaphore;
+s1=s2=s3=0;
+
+cobegin
+process1;
+process2;
+process3;
+coend
+
+
+process1{
+	while (TRUE) {
+		print(“P”);
+		print(“I”);
+		signal(s2);
+		wait(s1);
+		signal(s2);
+		wait(s1);
+		signal(s3);
+		wait(s1);
+	}
+}
+
+process2{
+	while (TRUE) {
+		wait(s2);
+		print(“Z”);
+		signal(s1);
+	}
+}
+
+process3{
+	while (TRUE) {
+		wait(s3);
+		print(“A”);
+	}
+}
+
+
+
+////////////////////////////////////////////////
+
+
+
+
+var s1,s2,s3: semaphore;
+s1=s2=s3=0;
+
+cobegin
+process1;
+process2;
+process3;
+coend
+
+
+process1{
+	while (TRUE) {
+		print(“P”);
+		print(“I”);
+		signal(s2);
+		wait(s1);
+		signal(s2);
+		wait(s1);
+		signal(s3);
+		wait(s1);
+	}
+}
+
+process2{
+	while (TRUE) {
+		wait(s2);
+		print(“Z”);
+		signal(s1);
+	}
+}
+
+process3{
+	while (TRUE) {
+		wait(s3);
+		print(“A”);
+		signal(s1);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
